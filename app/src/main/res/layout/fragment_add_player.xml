@@ -37,7 +37,8 @@
         android:id="@+id/txtPlayerName"
         android:layout_alignBottom="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <CheckBox
         android:layout_width="wrap_content"
