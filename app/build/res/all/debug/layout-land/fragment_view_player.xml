@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2014. Jason Esposito
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical" >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"  >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Player:"
+            android:id="@+id/txtPlayerName"
+            android:layout_marginRight="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginTop="20sp" />
+
+        <Spinner
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/btnSave" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/btnSave"
+            android:onClick="btnSave"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="26dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Bennies"
+            android:id="@+id/lblBennies"
+            android:layout_below="@+id/spinner"
+            android:layout_alignEnd="@+id/spinner"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="48dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtBennies"
+            android:numeric="integer"
+            android:imeOptions="actionDone"
+            android:layout_alignBottom="@+id/lblBennies"
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_marginLeft="21dp" />
+        android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Wounds"
+            android:id="@+id/lblWounds"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/lblBennies"
+            android:layout_marginTop="10px" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtWounds"
+            android:numeric="integer"
+            android:imeOptions="actionDone"
+            android:layout_alignBottom="@+id/lblWounds"
+            android:layout_alignStart="@+id/txtBennies" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Spells"
+            android:id="@+id/lblSpells"
+            android:layout_marginBottom="24dp"
+            android:layout_above="@+id/btnSave"
+            android:layout_alignStart="@id/lblWounds" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtSpells"
+             android:numeric="integer"
+            android:imeOptions="actionDone"
+            android:layout_alignBottom="@+id/lblSpells"
+            android:layout_alignStart="@+id/txtWounds" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Initiative Modifiers:"
+            android:layout_below="@+id/txtPlayerName"
+            android:layout_toLeftOf="@+id/btnSave"
+            android:layout_marginTop="50dp"
+            android:id="@+id/textView"
+            android:layout_marginRight="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/txtInit"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/textView"
+            android:layout_above="@+id/lblSpells"
+            android:layout_alignEnd="@+id/btnSave"
+            android:layout_marginTop="20dp"
+            android:layout_alignStart="@+id/textView"
+             />
+</RelativeLayout>
+</ScrollView><!-- From: file:/E:/Users/Jason/AndroidStudioProjects/TurnOrder/app/src/main/res/layout-land/fragment_view_player.xml -->

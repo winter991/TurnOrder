@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:id="@+id/Turn"
+        android:choiceMode="singleChoice"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/CardsInDeck"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deal"
+        android:id="@+id/BtnDeal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/Turn"
+        android:layout_alignStart="@+id/Turn"
+        android:layout_marginBottom="36dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shuffle"
+        android:id="@+id/btnShuffle"
+        android:layout_alignTop="@+id/BtnDeal"
+        android:layout_alignEnd="@+id/Turn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Cards in Deck: 54"
+        android:id="@+id/CardsInDeck"
+        android:textSize="20sp"
+        android:layout_marginTop="31dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
