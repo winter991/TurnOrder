@@ -18,13 +18,17 @@ package com.TurnOrder;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,7 +93,8 @@ public class FragmentPlay extends Fragment {
             }
         });
 
-        restoreData(    args);
+        registerForContextMenu(lv);
+        restoreData(args);
         return rootView;
     }
     private void restoreData(   Bundle savedInstanceState)
@@ -110,6 +115,49 @@ public class FragmentPlay extends Fragment {
         }
 
     }
+    /** This will be invoked when an item in the listview is long pressed */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflator = getActivity().getMenuInflater();
+
+        inflator.inflate(R.menu.actions , menu);
+    }
+    /** This will be invoked when a menu item is selected */
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch(item.getItemId()){
+
+            case R.id.cnt_mnu_addBennies:
+
+                Toast.makeText(getActivity().getApplicationContext(), " Gain a Bennie\"" , Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.cnt_mnu_removedBennie:
+                Toast.makeText( getActivity().getApplicationContext(), "Used A Bennie" , Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cnt_mnu_addWounds:
+                Toast.makeText( getActivity().getApplicationContext(), "Wound Taken "   , Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cnt_mnu_removedWounds:
+
+                Toast.makeText( getActivity().getApplicationContext(), "Wound Healed"  , Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cnt_mnu_addSpell:
+                Toast.makeText( getActivity().getApplicationContext(), "Spell Point Gained "   , Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cnt_mnu_removedSpells:
+
+                Toast.makeText( getActivity().getApplicationContext(), " Spell Point used"  , Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+        return true;
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

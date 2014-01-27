@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright (c) 2014. Jason Esposito
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/cnt_mnu_addWounds"
+        android:title="@string/cnt_mnu_addWound"
+        />
+    <item
+        android:id="@+id/cnt_mnu_removedWounds"
+        android:title="@string/cnt_mnu_removedWound"
+        />
+
+    <item
+        android:id="@+id/cnt_mnu_addBennies"
+        android:title="@string/cnt_mnu_addBennie"
+        />
+    <item
+        android:id="@+id/cnt_mnu_removedBennie"
+        android:title="@string/cnt_mnu_removedBennie"
+        />
+
+    <item
+        android:id="@+id/cnt_mnu_addSpell"
+        android:title="@string/cnt_mnu_addSpell"
+        />
+    <item
+        android:id="@+id/cnt_mnu_removedSpells"
+        android:title="@string/cnt_mnu_removedSpell"
+        />
+
+
+</menu>
