@@ -27,8 +27,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -66,7 +69,7 @@ public class MainActivity extends Activity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //setupUI(findViewById(R.id.drawer_layout));
 
         playerList=new ArrayList<Player>();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -215,5 +218,11 @@ protected void onPostCreate(Bundle savedInstanceState) {
         mTitle =title;
     }
 
+    // handle dismissing the keyboard when user clicks out of focus
+    //from stackoverflow for now
+    public void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager)  getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+    }
 
 }

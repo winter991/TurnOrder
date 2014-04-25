@@ -17,23 +17,27 @@ package com.TurnOrder;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-public class FragmentAddPlayer extends Fragment
-{
+public class FragmentAddPlayer extends Fragment  {
+
     OnPlayerAddedListener mCallback;
 
     public static String getName() {
         return m_name;
     }
+
 
 
     // Container Activity must implement this interface
@@ -48,6 +52,11 @@ public class FragmentAddPlayer extends Fragment
     public FragmentAddPlayer(){}
     Button btnAdd;
     Button btnClear;
+    //adding all of the edit text fields so i can dismiss them when they lose focus
+    EditText etSpells;
+    EditText etWounds;
+    EditText etName;
+    EditText etBennies;
     private static String   m_name = "AddFragment";
 
 
@@ -56,8 +65,9 @@ public class FragmentAddPlayer extends Fragment
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rootView = inflater.inflate(R.layout.fragment_add_player, container, false);
+        setupUI(rootView);
+        // set
 
-        // get fields we need for
         btnAdd =(Button) rootView.findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +84,8 @@ public class FragmentAddPlayer extends Fragment
                 btnClear_Click();
             }
         });
+        //stupid textfiled stuff
+
         return rootView;
     }
     @Override
@@ -168,6 +180,36 @@ public class FragmentAddPlayer extends Fragment
             return false;
         }
 
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+    public void setupUI(View view) {
+
+        //Set up touch listener for non-text box views to hide keyboard.
+        if(!(view instanceof EditText)) {
+
+            view.setOnTouchListener(new View.OnTouchListener() {
+
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(getActivity());
+                    return false;
+                }
+
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+
+                View innerView = ((ViewGroup) view).getChildAt(i);
+
+                setupUI(innerView);
+            }
+        }
     }
 
 
