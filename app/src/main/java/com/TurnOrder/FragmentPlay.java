@@ -35,6 +35,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
+
 /**
  * Created by Jason on 1/25/14.
  */
@@ -119,39 +120,76 @@ public class FragmentPlay extends Fragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflator = getActivity().getMenuInflater();
+        MenuInflater inflater = getActivity().getMenuInflater();
 
-        inflator.inflate(R.menu.actions , menu);
+        inflater.inflate(R.menu.actions , menu);
     }
     /** This will be invoked when a menu item is selected */
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
+        Player p = (Player) lv.getItemAtPosition(info.position);
+        if(p == null)
+        {            // break out
+            return true;
+        }
         switch(item.getItemId()){
 
             case R.id.cnt_mnu_addBennies:
-
-                Toast.makeText(getActivity().getApplicationContext(), " Gain a Bennie\"" , Toast.LENGTH_SHORT).show();
-
+                p.setM_bennies(p.getM_bennies()+1);
+                Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" has gained a bennie:", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cnt_mnu_removedBennie:
-                Toast.makeText( getActivity().getApplicationContext(), "Used A Bennie" , Toast.LENGTH_SHORT).show();
+                if(p.getM_bennies()==0)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name() + " is out of bennies", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    p.setM_bennies(p.getM_bennies() - 1);
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name() + " has used a bennie:", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.cnt_mnu_addWounds:
-                Toast.makeText( getActivity().getApplicationContext(), "Wound Taken "   , Toast.LENGTH_SHORT).show();
+                if(p.getM_wounds()==3)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" is incapacitated and cannot take more wounds", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    p.setM_wounds(p.getM_wounds() + 1);
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name() + " has taken a wound:", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.cnt_mnu_removedWounds:
+                if(p.getM_wounds()==0)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" is fully healed and cannot be healed more", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    p.setM_wounds(p.getM_wounds() - 1);
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" has healed a wound.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText( getActivity().getApplicationContext(), "Wound Healed"  , Toast.LENGTH_SHORT).show();
+                }
 
-                Toast.makeText( getActivity().getApplicationContext(), "Wound Healed"  , Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cnt_mnu_addSpell:
+                p.setM_spells(p.getM_spells() + 1);
                 Toast.makeText( getActivity().getApplicationContext(), "Spell Point Gained "   , Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cnt_mnu_removedSpells:
+                if(p.getM_spells()==0)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" is out of spell points", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    p.setM_spells(p.getM_spells()-1);
+                    Toast.makeText(getActivity().getApplicationContext(), p.getM_name()+" has used a spell point ", Toast.LENGTH_SHORT).show();
+                }
 
-                Toast.makeText( getActivity().getApplicationContext(), " Spell Point used"  , Toast.LENGTH_SHORT).show();
                 break;
 
         }
