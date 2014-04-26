@@ -15,11 +15,14 @@
 
 package com.TurnOrder;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -200,7 +203,38 @@ public class FragmentViewPlayer extends Fragment {
         }
 
     }
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+    public void setupUI(View view) {
 
+        if(view == null)
+        {
+            return;
+        }
+
+        if(!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideKeyboard(getActivity());
+                    return false;
+                }
+
+            });
+        }
+
+        //Todo find a better way
+        if (view instanceof ViewGroup) {
+            int i=0;
+            while(i<((ViewGroup) view).getChildCount())
+            {
+                View v = ((ViewGroup) view).getChildAt(i);
+                setupUI(v);
+                i++;
+            }
+        }
+    }
 
 
 
