@@ -16,7 +16,7 @@
 
 package com.TurnOrder;
 
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -24,15 +24,9 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
+
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
+
 
 import java.util.ArrayList;
 
@@ -53,16 +47,13 @@ public class MainActivity extends Activity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
+
     private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             playerList = savedInstanceState.getParcelableArrayList("PlayerList");
-
         }
 
         fragmentManager = getFragmentManager();
@@ -110,14 +101,6 @@ protected void onPostCreate(Bundle savedInstanceState) {
         }
     }
 
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -126,27 +109,15 @@ protected void onPostCreate(Bundle savedInstanceState) {
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
+            //getMenuInflater().inflate(R.menu.main, menu);
             titlemenue = menu;
            // if(mNavigationDrawerFragment !=null)
-            restoreActionBar();
+
             return true;
         }
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     public void AddPlayer(Player p) {
         Integer i=0;
@@ -178,9 +149,6 @@ protected void onPostCreate(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         playerList=savedInstanceState.getParcelableArrayList("PlayerList");
     }
-
-
-
 
     private void changeNavItem(int position,Player p)
     {
@@ -218,11 +186,5 @@ protected void onPostCreate(Bundle savedInstanceState) {
         mTitle =title;
     }
 
-    // handle dismissing the keyboard when user clicks out of focus
-    //from stackoverflow for now
-    public void hideSoftKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager)  getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-    }
 
 }

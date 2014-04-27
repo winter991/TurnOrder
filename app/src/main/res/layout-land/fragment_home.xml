@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
   ~ Copyright (c) 2014. Jason Esposito
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,7 +33,7 @@
         android:textSize="30sp"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="10px" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,25 +42,22 @@
         android:text="Instructions"
         android:id="@+id/Instructions"
         android:layout_below="@+id/textView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_marginTop="100dp" />
-
+        android:layout_toRightOf="@+id/imageView" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/instructions"
         android:id="@+id/InstructDetails"
-        android:layout_below="@+id/textView2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="51dp"
         android:layout_toRightOf="@+id/imageView" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Deals cards for turn order during play"
         android:id="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/imageView" />
-
+        android:layout_below="@+id/Instructions"
+        android:layout_alignStart="@+id/Instructions" />
 </RelativeLayout>
