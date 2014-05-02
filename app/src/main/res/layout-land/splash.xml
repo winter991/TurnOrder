@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2014. Jason Esposito
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~  http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Turn Order Card Dealer"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="114dp"
+        android:layout_height="127dp"
+        android:id="@+id/sw_fan_logo"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/sw_fan"
+        android:contentDescription="@string/sw_Fan" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/sw_licence"
+        android:id="@+id/textView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="12dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:id="@+id/btnContinue"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp" />
+</LinearLayout>

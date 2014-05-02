@@ -69,7 +69,7 @@ public class NavigationDrawerFragment extends Fragment {
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    private int mCurrentSelectedPosition = 0;
+    private int mCurrentSelectedPosition = 4;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
@@ -121,7 +121,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.AddPlayerSection),
                         getString(R.string.ViewPlayerSection),
                         getString(R.string.PlaySection),
-
+                        "Savage Worlds Licence"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

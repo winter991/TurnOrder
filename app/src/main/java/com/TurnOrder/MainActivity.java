@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        FragmentAddPlayer.OnPlayerAddedListener,FragmentPlay.OnPlayerClicked {
+        FragmentAddPlayer.OnPlayerAddedListener,FragmentPlay.OnPlayerClicked, FragmentSplash.OnContinue{
 
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends Activity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //setupUI(findViewById(R.id.drawer_layout));
+
 
         playerList=new ArrayList<Player>();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -97,6 +97,8 @@ protected void onPostCreate(Bundle savedInstanceState) {
                 mTitle = getString(R.string.ViewPlayerSection);
             case 4:
                 mTitle = getString(R.string.PlaySection);
+            case 5:
+                mTitle = getString(R.string.Notice);
 
         }
     }
@@ -172,6 +174,9 @@ protected void onPostCreate(Bundle savedInstanceState) {
                 fragment=new FragmentPlay(playerList);
                 setTitleMenu(titlemenue, "Play");
                 break;
+            case 5:
+                fragment=new FragmentSplash();
+                setTitleMenu(titlemenue, "Savage Worlds Licence");
         }
 
         FragmentTransaction fragmentTransaction =   fragmentManager.beginTransaction();
@@ -187,4 +192,8 @@ protected void onPostCreate(Bundle savedInstanceState) {
     }
 
 
+    @Override
+    public void goHome() {
+        changeNavItem(0,null);
+    }
 }
